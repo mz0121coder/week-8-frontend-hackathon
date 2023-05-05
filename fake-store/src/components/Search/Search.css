@@ -1,0 +1,9 @@
+* {
+    border: 0.1em solid red;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+}
