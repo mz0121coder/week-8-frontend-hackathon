@@ -1,5 +1,13 @@
-body {
+/* body {
   background-color: cornsilk;
+} */
+
+.light {
+    background-color: cornsilk;
+}
+
+.dark {
+    background-color: rgb(31, 31, 80);
 }
 
 .products-container {

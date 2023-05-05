@@ -19,6 +19,8 @@ function App() {
   const [click, setClick] = useState(false);
   // Set initial state for our filtered products
   const [filteredProducts, setFilteredProducts] = useState([]);
+  // set initial state for dark theme
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -29,6 +31,10 @@ function App() {
         setLoaded(true);
       });
   }, []);
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   if (!loaded) {
     return <div>Loading...</div>;
@@ -47,25 +53,20 @@ function App() {
     setClick(true);
     setFilteredProducts(filteredSearch);
   }
+
+  function handleDarkTheme() {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  }
+
   return (
     <>
-      <Navbar />
+      <Navbar handleDarkTheme={handleDarkTheme} />
       <Search handleSearch={handleSearch} handleClick={handleClick} />
       <div className="products-container">
-        {/* {click === false &&
-          products.map((product, index) => (
-            <div className="product">
-              {" "}
-              <Product
-                key={product.id}
-                image={product.image}
-                title={product.title}
-                price={product.price}
-                index={product.index}
-              />
-            </div>
-          ))} */}
-
         {filteredProducts.map((product, index) => (
           <div className="product">
             {" "}

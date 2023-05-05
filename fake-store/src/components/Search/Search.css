@@ -7,3 +7,12 @@
     justify-content: center;
     gap: 0;
 }
+
+.search-container input, .search-container button {
+    border: 1px solid orange;
+    border-radius: 0.2em;
+}
+.search-container button {
+    background-color: orange;
+}
+
