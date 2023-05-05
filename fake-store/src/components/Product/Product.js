@@ -6,8 +6,7 @@ export default function Product(props) {
 		<>
 			<img src={props.image} alt='product' />
 			<h2>{props.title}</h2>
-			<p>{props.price}</p>
-			<p>{props.index}</p>
+			<h3>Price: £{props.price.toFixed(2)}</h3>
 		</>
 	);
 }
