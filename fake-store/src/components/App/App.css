@@ -1,3 +1,7 @@
+body {
+  background-color: cornsilk;
+}
+
 .products-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -13,6 +17,8 @@
   padding: 2em;
   width: 25em;
   height: 30em;
+  background-color: white;
+  border-radius: 1em;
   /* border: 1px solid red; */
 }
 

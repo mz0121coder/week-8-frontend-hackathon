@@ -15,13 +15,17 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   // Set initial state for search
   const [search, setSearch] = useState("");
-
+  // Set initial state for buttonclick
+  const [click, setClick] = useState(false);
+  // Set initial state for our filtered products
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => {
         setProducts(json);
+        setFilteredProducts(json);
         setLoaded(true);
       });
   }, []);
@@ -30,19 +34,39 @@ function App() {
     return <div>Loading...</div>;
   }
 
-  function handleSearch (e) {
-    setSearch(e.target.value)
+  function handleSearch(e) {
+    setSearch(e.target.value);
     // return products.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
     // console.log(search)
   }
-  const filteredSearch = products.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
-  
+  const filteredSearch = products.filter((product) =>
+    product.title.toLowerCase().includes(search.toLowerCase())
+  );
+
+  function handleClick() {
+    setClick(true);
+    setFilteredProducts(filteredSearch);
+  }
   return (
     <>
       <Navbar />
-      <Search handleSearch={handleSearch}/>
+      <Search handleSearch={handleSearch} handleClick={handleClick} />
       <div className="products-container">
-        {filteredSearch.map((product, index) => (
+        {/* {click === false &&
+          products.map((product, index) => (
+            <div className="product">
+              {" "}
+              <Product
+                key={product.id}
+                image={product.image}
+                title={product.title}
+                price={product.price}
+                index={product.index}
+              />
+            </div>
+          ))} */}
+
+        {filteredProducts.map((product, index) => (
           <div className="product">
             {" "}
             <Product

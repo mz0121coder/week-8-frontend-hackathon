@@ -10,7 +10,7 @@ import "./Search.css";
 function Search(props) {
   return (
     <div className="search-container">
-      <button onClick={(()=>console.log("click"))}><img src={search} alt="search-icon" /></button>
+      <button onClick={props.handleClick}><img src={search} alt="search-icon" /></button>
       <input type="text" placeholder="Search products here..." onChange={props.handleSearch}/>
     </div>
   );
