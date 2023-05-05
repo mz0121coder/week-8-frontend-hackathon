@@ -32,13 +32,16 @@ function App() {
 			<Search />
 			<div className='products-container'>
 				{products.map((product, index) => (
-					<Product
-						key={product.id}
-						image={product.image}
-						title={product.title}
-						price={product.price}
-						index={product.index}
-					/>
+					<div className='product'>
+						{' '}
+						<Product
+							key={product.id}
+							image={product.image}
+							title={product.title}
+							price={product.price}
+							index={product.index}
+						/>
+					</div>
 				))}
 			</div>
 		</>
