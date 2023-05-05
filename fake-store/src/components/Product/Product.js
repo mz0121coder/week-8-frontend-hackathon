@@ -1,6 +1,3 @@
-// Product component will have an image, title and price for products
-// Might add more properties later
-
 export default function Product(props) {
 	return (
 		<>
