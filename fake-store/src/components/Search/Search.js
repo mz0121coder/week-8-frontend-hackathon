@@ -2,11 +2,16 @@ import React from "react";
 import search from "../Images/search.png";
 import "./Search.css";
 
-function Search() {
+// Be able to search for a product
+// Product name contains search text 
+
+
+
+function Search(props) {
   return (
     <div className="search-container">
-      <img src={search} alt="search-icon" />
-      <input type="text" placeholder="Search products here..." />
+      <button onClick={(()=>console.log("click"))}><img src={search} alt="search-icon" /></button>
+      <input type="text" placeholder="Search products here..." onChange={props.handleSearch}/>
     </div>
   );
 }
