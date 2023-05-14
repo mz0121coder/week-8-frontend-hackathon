@@ -8,8 +8,6 @@ function App() {
 	const [products, setProducts] = useState([]);
 	// Set the state for checking if all products have loaded
 	const [loaded, setLoaded] = useState(false);
-	// Set the initial search state
-	const [search, setSearch] = useState('');
 	// Set the initial filtered products state
 	const [filteredProducts, setFilteredProducts] = useState([]);
 	// Set the initial state for the theme (light or dark)
@@ -19,6 +17,7 @@ function App() {
 		fetch('https://fakestoreapi.com/products')
 			.then(res => res.json())
 			.then(json => {
+				console.log(json);
 				setProducts(json);
 				setFilteredProducts(json); // Set the initial filtered products to all products
 				setLoaded(true);
@@ -33,15 +32,20 @@ function App() {
 	}
 	// Update the search state on input change
 	function handleSearch(e) {
-		setSearch(e.target.value);
-	}
-	// Filter the products based on search input when button is clicked
-	function handleClick() {
+		// Filter the products based on search input when button is clicked
 		const filteredSearch = products.filter(product =>
-			product.title.toLowerCase().includes(search.toLowerCase())
+			product.title.toLowerCase().startsWith(e.target.value.toLowerCase())
 		);
 		setFilteredProducts(filteredSearch);
 	}
+
+	function handleCategory(e) {
+		const filteredCategory = products.filter(
+			product => product.category === e.target.value
+		);
+		setFilteredProducts(filteredCategory);
+	}
+
 	// Toggle between light and dark themes
 	function handleDarkTheme() {
 		if (theme === 'light') {
@@ -53,7 +57,7 @@ function App() {
 	return (
 		<>
 			<Navbar handleDarkTheme={handleDarkTheme} />
-			<Search handleSearch={handleSearch} handleClick={handleClick} />
+			<Search handleSearch={handleSearch} handleCategory={handleCategory} />
 			<div className='products-container'>
 				{filteredProducts.map((product, index) => (
 					<div className='product' key={product.id}>
