@@ -12,6 +12,9 @@ function App() {
 	const [filteredProducts, setFilteredProducts] = useState([]);
 	// Set the initial state for the theme (light or dark)
 	const [theme, setTheme] = useState('light');
+	// Set the initial state for the cart quantity
+	// const [cart, setCart] = useState(0);
+
 	// Use the useEffect hook to fetch the products data
 	useEffect(() => {
 		fetch('https://fakestoreapi.com/products')
@@ -39,6 +42,7 @@ function App() {
 		setFilteredProducts(filteredSearch);
 	}
 
+	// Update the displayed category of products
 	function handleCategory(e) {
 		const filteredCategory = products.filter(product =>
 			e.target.value === ''
@@ -47,6 +51,16 @@ function App() {
 		);
 		setFilteredProducts(filteredCategory);
 	}
+
+	// Update the cart quantity
+	// function handleCart() {
+	// 	setAdded(!added);
+	// 	if (added) {
+	// 		setCart(prevCart => prevCart + 1);
+	// 	} else {
+	// 		setCart(prevCart => prevCart - 1);
+	// 	}
+	// }
 
 	// Toggle between light and dark themes
 	function handleDarkTheme() {
