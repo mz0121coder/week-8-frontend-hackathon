@@ -11,8 +11,9 @@ function Search(props) {
 				placeholder='Search products here...'
 				onChange={props.handleSearch}
 			/>
-			<label htmlFor='categories'>Filter by category</label>
+			<label htmlFor='categories'>Choose a category:</label>
 			<select name='categories' id='categories' onChange={props.handleCategory}>
+				<option value=''>All Products</option>
 				<option value="men's clothing">Men's Clothing</option>
 				<option value="women's clothing">Women's Clothing</option>
 				<option value='jewelery'>Jewellery</option>

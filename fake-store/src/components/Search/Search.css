@@ -1,18 +1,6 @@
-/* * {
-    border: 0.1em solid red;
-} */
-
 .search-container {
     display: flex;
     justify-content: center;
-    gap: 0;
+    align-items: center;
+    gap: 2rem;
 }
-
-.search-container input, .search-container button {
-    border: 1px solid orange;
-    border-radius: 0.2em;
-}
-.search-container button {
-    background-color: orange;
-}
-

@@ -3,11 +3,11 @@
 } */
 
 .light {
-    background-color: cornsilk;
+  background-color: cornsilk;
 }
 
 .dark {
-    background-color: rgb(31, 31, 80);
+  background-color: rgb(31, 31, 80);
 }
 
 .products-container {
@@ -23,8 +23,8 @@
   justify-content: space-evenly;
   align-items: center;
   padding: 2em;
-  width: 25em;
-  height: 30em;
+  width: auto;
+  height: auto;
   background-color: white;
   border-radius: 1em;
   /* border: 1px solid red; */

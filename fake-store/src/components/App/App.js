@@ -34,14 +34,16 @@ function App() {
 	function handleSearch(e) {
 		// Filter the products based on search input when button is clicked
 		const filteredSearch = products.filter(product =>
-			product.title.toLowerCase().startsWith(e.target.value.toLowerCase())
+			product.title.toLowerCase().includes(e.target.value.toLowerCase())
 		);
 		setFilteredProducts(filteredSearch);
 	}
 
 	function handleCategory(e) {
-		const filteredCategory = products.filter(
-			product => product.category === e.target.value
+		const filteredCategory = products.filter(product =>
+			e.target.value === ''
+				? product.category.includes('')
+				: product.category === e.target.value
 		);
 		setFilteredProducts(filteredCategory);
 	}
@@ -65,6 +67,11 @@ function App() {
 							image={product.image}
 							title={product.title}
 							price={product.price}
+							description={product.description}
+							rating={product.rating.rate}
+							reviews={product.rating.count.toString()}
+							category={product.category}
+							id={product.id}
 						/>
 					</div>
 				))}
