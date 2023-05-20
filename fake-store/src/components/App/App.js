@@ -52,16 +52,6 @@ function App() {
 		setFilteredProducts(filteredCategory);
 	}
 
-	// Update the cart quantity
-	// function handleCart() {
-	// 	setAdded(!added);
-	// 	if (added) {
-	// 		setCart(prevCart => prevCart + 1);
-	// 	} else {
-	// 		setCart(prevCart => prevCart - 1);
-	// 	}
-	// }
-
 	// Toggle between light and dark themes
 	function handleDarkTheme() {
 		if (theme === 'light') {

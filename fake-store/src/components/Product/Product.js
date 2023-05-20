@@ -1,15 +1,20 @@
 import { useState } from 'react';
 export default function Product(props) {
+	const [quantity, setQuantity] = useState(0);
 	const [viewDetails, setViewDetails] = useState(false);
-	// initial state for product added to cart
-	const [added, setAdded] = useState(false);
 
 	function handleViewDetails() {
 		setViewDetails(!viewDetails);
 	}
 
-	function handleAdd() {
-		setAdded(!added);
+	function addToCart() {
+		setQuantity(quantity + 1);
+	}
+
+	function removeFromCart() {
+		if (quantity > 0) {
+			setQuantity(quantity - 1);
+		}
 	}
 
 	return (
@@ -22,7 +27,9 @@ export default function Product(props) {
 				Rating: {'⭐️'.repeat(Math.round(props.rating))} ({`${props.rating}/5`})
 			</h4>
 			<h4>{`${props.reviews}`} ratings</h4>
-			<button onClick={handleAdd}>{!added ? '🛍 🛒' : '✅✅'}</button>
+			<button onClick={addToCart}>+</button>
+			{quantity > 0 && <button onClick={removeFromCart}>-</button>}
+			<p>{quantity > 0 && `${quantity}`}</p>
 			<button onClick={handleViewDetails}>
 				{!viewDetails ? 'View more details:' : 'Hide details'}
 			</button>
